@@ -5,3 +5,5 @@
 ![GitHub Release](https://img.shields.io/github/v/release/lasuillard/mockbook)
 
 Docker image for Jupyter + FastAPI to write mocks.
+
+![Demo](/docs/demo.gif)
