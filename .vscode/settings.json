@@ -1,0 +1,11 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "cSpell.words": [
+    "devcontainers",
+    "mockbook"
+  ],
+  "editor.formatOnSave": true,
+  "ruff.fixAll": true
+}

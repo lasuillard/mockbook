@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    environment:
+      JUPYTERLAB_ARGS: "--NotebookApp.token=${MOCKBOOK_TOKEN:-token}"
+    volumes:
+      - ./mockbook:/app/mockbook
+    ports:
+      - ${MOCKBOOK_HOST:-127.0.0.1}:${MOCKBOOK_PORT:-8000}:8000
+      - ${JUPYTERLAB_HOST:-127.0.0.1}:${JUPYTERLAB_PORT:-8888}:8888
+    healthcheck:
+      test: curl --fail http://localhost:8000 || exit 1
+      interval: 3s
+      timeout: 2s
+      retries: 5
+      start_period: 5s
