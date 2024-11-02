@@ -14,8 +14,8 @@ teardown_file() {
 # Test services are up
 # ============================================================================
 @test "Mock service is up" {
-	run curl --fail --silent http://localhost:8000
-	assert_output '"OK"'
+	run curl --fail http://localhost:8000/docs
+	assert_success
 }
 
 @test "Jupyter Lab is up" {
