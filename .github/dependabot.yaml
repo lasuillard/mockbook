@@ -15,3 +15,15 @@ updates:
     directory: '/'
     schedule:
       interval: monthly
+
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+    groups:
+      dev-dependencies:
+        applies-to: version-updates
+        dependency-type: development
