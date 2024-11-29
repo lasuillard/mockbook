@@ -24,11 +24,9 @@ jobs:
       - name: Install deps
         run: uv sync --frozen --all-extras
 
-      - name: Lint code
-        run: uv run --frozen ruff check .
-
-      - name: Run type checks
-        run: uv run --frozen mypy --show-error-codes --pretty .
+      - uses: pre-commit/action@v3.0.1
+      - uses: pre-commit-ci/lite-action@v1.1.0
+        if: always()
 
   test:
     runs-on: ubuntu-latest
