@@ -1,6 +1,6 @@
 [project]
 name = "mockbook"
-version = "0.1.0"
+version = "0.2.0"
 authors = [{ name = "Yuchan Lee", email = "lasuillard@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.13, <4.0"
