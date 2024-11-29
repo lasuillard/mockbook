@@ -5,21 +5,27 @@
     "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
+  "onCreateCommand": "./.devcontainer/onCreateCommand.sh",
   "postAttachCommand": "pre-commit install",
   "customizations": {
     "vscode": {
       "extensions": [
-        "ldez.ignore-files",
-        "gruntfuggly.todo-tree",
-        "redhat.vscode-yaml",
-        "tamasfe.even-better-toml",
-        "streetsidesoftware.code-spell-checker",
+        "charliermarsh.ruff",
         "EditorConfig.EditorConfig",
-        "jetmartin.bats",
         "foxundermoon.shell-format",
-        "timonwong.shellcheck",
+        "gruntfuggly.todo-tree",
+        "jetmartin.bats",
+        "ldez.ignore-files",
+        "ms-python.debugpy",
+        "ms-python.mypy-type-checker",
         "ms-python.python",
-        "charliermarsh.ruff"
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "njpwerner.autodocstring",
+        "redhat.vscode-yaml",
+        "streetsidesoftware.code-spell-checker",
+        "tamasfe.even-better-toml",
+        "timonwong.shellcheck"
       ]
     }
   },

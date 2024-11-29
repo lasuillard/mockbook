@@ -15,12 +15,28 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
 
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.7.1
+  - repo: local
     hooks:
-      - id: ruff
+      - id: ruff-check
+        name: Fix using Ruff
+        language: system
+        types: [python]
+        entry: uv run --frozen ruff check
         args: [--fix]
+
       - id: ruff-format
+        name: Format using Ruff
+        language: system
+        types: [python]
+        entry: uv run --frozen ruff format
+
+      - id: mypy
+        name: Type check with mypy
+        language: system
+        types: [python]
+        pass_filenames: false
+        entry: uv run --frozen mypy
+        args: [--show-error-codes, --pretty, .]
 
 ci:
   autofix_prs: true
