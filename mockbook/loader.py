@@ -9,6 +9,8 @@ import io
 import os
 import sys
 import types
+from importlib.abc import Loader, MetaPathFinder
+from importlib.util import spec_from_loader
 from typing import Any
 
 from IPython import get_ipython
@@ -39,7 +41,7 @@ def find_notebook(fullname: str, path: str | None = None) -> None:
     return None
 
 
-class NotebookLoader:
+class NotebookLoader(Loader):
     """Module Loader for Jupyter Notebooks"""
 
     def __init__(self, path: str | None = None) -> None:
@@ -84,7 +86,7 @@ class NotebookLoader:
         return mod
 
 
-class NotebookFinder:
+class NotebookFinder(MetaPathFinder):
     """Module finder that locates Jupyter Notebooks"""
 
     def __init__(self) -> None:
@@ -103,3 +105,15 @@ class NotebookFinder:
         if key not in self.loaders:
             self.loaders[key] = NotebookLoader(path)
         return self.loaders[key]
+
+    def find_spec(
+        self,
+        fullname: str,
+        path: str | None,
+        target: str | None = None,  # noqa: ARG002
+    ) -> Any:
+        loader = self.find_module(fullname, path)
+        if loader is None:
+            return None
+
+        return spec_from_loader(fullname, loader)
