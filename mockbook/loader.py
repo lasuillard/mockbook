@@ -11,14 +11,17 @@ import sys
 import types
 from importlib.abc import Loader, MetaPathFinder
 from importlib.util import spec_from_loader
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from IPython import get_ipython
 from IPython.core.interactiveshell import InteractiveShell
 from nbformat import read
 
+if TYPE_CHECKING:
+    from collections.abc import Sequence
 
-def find_notebook(fullname: str, path: str | None = None) -> None:
+
+def find_notebook(fullname: str, path: Sequence[str] | None = None) -> str | None:
     """find a notebook, given its fully qualified name and an optional path
 
     This turns "foo.bar" into "foo/bar.ipynb"
@@ -28,6 +31,7 @@ def find_notebook(fullname: str, path: str | None = None) -> None:
     name = fullname.rsplit(".", 1)[-1]
     if not path:
         path = [""]
+
     for d in path:
         nb_path = os.path.join(d, name + ".ipynb")  # noqa: PTH118
         if os.path.isfile(nb_path):  # noqa: PTH113
@@ -44,13 +48,16 @@ def find_notebook(fullname: str, path: str | None = None) -> None:
 class NotebookLoader(Loader):
     """Module Loader for Jupyter Notebooks"""
 
-    def __init__(self, path: str | None = None) -> None:
+    def __init__(self, path: Sequence[str] | None = None) -> None:
         self.shell = InteractiveShell.instance()
         self.path = path
 
     def load_module(self, fullname: str) -> types.ModuleType:
         """import a notebook as a module"""
         path = find_notebook(fullname, self.path)
+        if not path:
+            msg = f"Notebook not found: {fullname}"
+            raise ImportError(msg)
 
         print(f"importing Jupyter notebook from {path}")  # noqa: T201
 
@@ -90,9 +97,9 @@ class NotebookFinder(MetaPathFinder):
     """Module finder that locates Jupyter Notebooks"""
 
     def __init__(self) -> None:
-        self.loaders = {}
+        self.loaders: dict = {}
 
-    def find_module(self, fullname: str, path: str | None = None) -> Any:
+    def find_module(self, fullname: str, path: Sequence[str] | None = None) -> Any:
         nb_path = find_notebook(fullname, path)
         if not nb_path:
             return None
@@ -109,8 +116,8 @@ class NotebookFinder(MetaPathFinder):
     def find_spec(
         self,
         fullname: str,
-        path: str | None,
-        target: str | None = None,  # noqa: ARG002
+        path: Sequence[str] | None,
+        target: Any | None = None,  # noqa: ARG002
     ) -> Any:
         loader = self.find_module(fullname, path)
         if loader is None:

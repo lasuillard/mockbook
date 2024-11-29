@@ -5,12 +5,19 @@ RUN apt-get update && apt-get install -y \
     curl \
     && apt-get clean
 
-COPY ./requirements.txt /app/requirements.txt
-RUN pip install -r /app/requirements.txt
+WORKDIR /app
 
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Install deps
+ENV UV_SYSTEM_PYTHON=1 \
+    PYTHONPATH="${PYTHONPATH}:/app"
+
+COPY pyproject.toml uv.lock ./
+RUN uv pip install -r pyproject.toml
 COPY ./mockbook /app/mockbook
-
-ENV PYTHONPATH="${PYTHONPATH}:/app"
+RUN uv pip install -e .
 
 COPY ./supervisord/conf.d/* /app/conf.d/
 COPY ./supervisord/supervisord.conf /app/supervisord.conf

@@ -5,7 +5,8 @@
 !supervisord/**
 !docker-entrypoint.sh
 !LICENSE
-!requirements.txt
+!pyproject.toml
+!uv.lock
 
 # Extra exclude from allowed things
 **/*~
