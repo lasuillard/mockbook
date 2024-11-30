@@ -16,6 +16,8 @@ Basically, Mockbook is an simple [FastAPI](https://github.com/fastapi/fastapi) a
 
 - Maintain mock endpoints using [Jupyter](https://jupyter.org/) Notebook (works by importing all cells in notebooks)
 
+- Pre-installed libraries for writing mocks: [factory-boy](https://github.com/FactoryBoy/factory_boy), [Faker](https://github.com/joke2k/faker)
+
 ## 📔 Usage
 
 You can try this image with Docker Compose by simply checking it out and running `docker compose up --build`. For more details, please check `docker-compose.yaml` file.
