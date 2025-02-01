@@ -8,7 +8,7 @@ dependencies = [
     "nbformat~=5.10.4",
     "fastapi[standard]~=0.115.4",
     "jupyterlab~=4.3.0",
-    "faker~=33.1.0",
+    "faker~=35.2.0",
     "factory-boy~=3.3.1",
 ]
 
