@@ -6,7 +6,6 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "onCreateCommand": "./.devcontainer/onCreateCommand.sh",
-  "postAttachCommand": "pre-commit install",
   "customizations": {
     "vscode": {
       "extensions": [
