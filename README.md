@@ -37,3 +37,12 @@ Following endpoints will be available:
 - http://localhost:8000/docs for FastAPI OpenAPI documentation.
 
 - http://localhost:8888 for Jupyter Lab web UI for browsers.
+
+Also, following environment variables supported:
+
+| Key                           | Description                                                                                                                                       |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `JUPYTERLAB_ARGS`             | Extra arguments for JupyterLab.                                                                                                                   |
+| `DISABLE_JUPYTERLAB`          | Disable JupyterLab service. <br/>May useful for certain environments (such as testing) where notebook is unnecessary.                                  |
+| `MOCKBOOK_ARGS`               | Extra arguments for Mockbook (**uvicorn**)                                                                                                        |
+| `DISABLE_MOCKBOOK_AUTORELOAD` | Disable auto reloading (`--reload` argument of **uvicorn**). <br/>May useful for certain environments (such as testing) where notebook is unnecessary. |
