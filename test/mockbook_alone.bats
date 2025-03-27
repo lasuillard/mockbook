@@ -1,4 +1,6 @@
 setup_file() {
+	export DISABLE_JUPYTERLAB=1
+	export DISABLE_MOCKBOOK_AUTORELOAD=1
 	docker compose up --detach --build --wait --wait-timeout 30
 }
 
@@ -18,7 +20,7 @@ teardown_file() {
 	assert_success
 }
 
-@test "Jupyter Lab is up" {
+@test "JupyterLab service is down" {
 	run curl --fail http://localhost:8888
-	assert_success
+	assert_failure
 }
