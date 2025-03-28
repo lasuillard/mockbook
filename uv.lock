@@ -816,7 +816,7 @@ wheels = [
 
 [[package]]
 name = "mockbook"
-version = "0.2.0"
+version = "0.4.0"
 source = { virtual = "." }
 dependencies = [
     { name = "factory-boy" },
@@ -1302,6 +1302,7 @@ wheels = [
 name = "rpds-py"
 version = "0.24.0"
 source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/0b/b3/52b213298a0ba7097c7ea96bee95e1947aa84cc816d48cebb539770cdf41/rpds_py-0.24.0.tar.gz", hash = "sha256:772cc1b2cd963e7e17e6cc55fe0371fb9c704d63e44cacec7b9b7f523b78919e", size = 26863 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9d/c3/3607abc770395bc6d5a00cb66385a5479fb8cd7416ddef90393b17ef4340/rpds_py-0.24.0-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:3d2d8e4508e15fc05b31285c4b00ddf2e0eb94259c2dc896771966a163122a0c", size = 367072 },
     { url = "https://files.pythonhosted.org/packages/d8/35/8c7ee0fe465793e3af3298dc5a9f3013bd63e7a69df04ccfded8293a4982/rpds_py-0.24.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:0f00c16e089282ad68a3820fd0c831c35d3194b7cdc31d6e469511d9bffc535c", size = 351919 },
