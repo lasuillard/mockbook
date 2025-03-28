@@ -45,4 +45,4 @@ Also, following environment variables supported:
 | `JUPYTERLAB_ARGS`             | Extra arguments for JupyterLab.                                                                                                                   |
 | `DISABLE_JUPYTERLAB`          | Disable JupyterLab service. <br/>May useful for certain environments (such as testing) where notebook is unnecessary.                                  |
 | `MOCKBOOK_ARGS`               | Extra arguments for Mockbook (**uvicorn**)                                                                                                        |
-| `DISABLE_MOCKBOOK_AUTORELOAD` | Disable auto reloading (`--reload` argument of **uvicorn**). <br/>May useful for certain environments (such as testing) where notebook is unnecessary. |
+| `DISABLE_MOCKBOOK_AUTORELOAD` | Disable auto reloading (`--reload` argument of **uvicorn**). <br/>May useful for certain environments (such as testing) where reloading is not desirable. |
