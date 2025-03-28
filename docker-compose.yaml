@@ -2,7 +2,10 @@ services:
   app:
     build: .
     environment:
-      JUPYTERLAB_ARGS: "--NotebookApp.token=${MOCKBOOK_TOKEN:-token}"
+      JUPYTERLAB_ARGS: ${JUPYETLAB_ARGS:-"--NotebookApp.token=${MOCKBOOK_TOKEN:-token}"}
+      DISABLE_JUPYTERLAB: ${DISABLE_JUPYTERLAB:-}
+      MOCKBOOK_ARGS: ${MOCKBOOK_ARGS:-}
+      DISABLE_MOCKBOOK_AUTORELOAD: ${DISABLE_MOCKBOOK_AUTORELOAD:-}
     volumes:
       - ./mockbook/notebooks:/app/mockbook/notebooks
     ports:
