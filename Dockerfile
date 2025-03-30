@@ -14,9 +14,9 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 ENV UV_SYSTEM_PYTHON=1
 
 COPY pyproject.toml uv.lock ./
-RUN uv pip install -r pyproject.toml
+RUN uv pip install --requirement pyproject.toml
 COPY ./mockbook /app/mockbook
-RUN uv pip install -e .
+RUN uv pip install --editable .
 
 COPY ./supervisord/conf.d/* /app/conf.d/
 COPY ./supervisord/supervisord.conf /app/supervisord.conf
