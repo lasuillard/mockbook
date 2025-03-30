@@ -11,8 +11,7 @@ WORKDIR /app
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Install deps
-ENV UV_SYSTEM_PYTHON=1 \
-    PYTHONPATH="/app"
+ENV UV_SYSTEM_PYTHON=1
 
 COPY pyproject.toml uv.lock ./
 RUN uv pip install -r pyproject.toml
