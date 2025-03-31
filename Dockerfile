@@ -19,7 +19,6 @@ RUN uv pip install --requirement pyproject.toml
 COPY ./mockbook /app/mockbook
 RUN uv pip install --editable .
 
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 COPY ./scripts /app/scripts
 COPY ./supervisord/conf.d/* /app/conf.d/
 COPY ./supervisord/supervisord.conf /app/supervisord.conf
