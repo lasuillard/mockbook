@@ -1,6 +1,7 @@
 **
 
 # Allowed things
+!jupyterlab/**
 !mockbook/**
 !nginx/**
 !scripts/**
