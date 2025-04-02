@@ -21,8 +21,7 @@ COPY ./mockbook /app/mockbook
 RUN uv pip install --editable .
 
 COPY . .
-COPY ./docker-entrypoint.sh /
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
 
 EXPOSE 80 8000 8888
