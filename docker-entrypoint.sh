@@ -3,6 +3,7 @@
 # Set environment variable defaults
 export JUPYTERLAB_ARGS="${JUPYTERLAB_ARGS:-}"
 export MOCKBOOK_ARGS="${MOCKBOOK_ARGS:-}"
+export NGINX_ARGS="${NGINX_ARGS:-}"
 
 if [ -n "$DISABLE_JUPYTERLAB" ]; then
 	mv /app/conf.d/jupyterlab.conf /app/conf.d/jupyterlab.conf.disabled
