@@ -14,4 +14,4 @@ if [ -z "$DISABLE_MOCKBOOK_AUTORELOAD" ]; then
 	echo "Mockbook auto reloading has been enabled."
 fi
 
-exec supervisord -c /app/supervisord.conf
+exec supervisord -c /app/supervisord/supervisord.conf
