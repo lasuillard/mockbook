@@ -24,3 +24,5 @@ COPY . .
 COPY ./docker-entrypoint.sh /
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
+
+EXPOSE 80 8000 8888
