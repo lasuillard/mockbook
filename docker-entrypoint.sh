@@ -6,7 +6,7 @@ export MOCKBOOK_ARGS="${MOCKBOOK_ARGS:-}"
 export NGINX_ARGS="${NGINX_ARGS:-}"
 
 if [ -n "$DISABLE_JUPYTERLAB" ]; then
-	mv /app/conf.d/jupyterlab.conf /app/conf.d/jupyterlab.conf.disabled
+	mv /app/supervisord/conf.d/jupyterlab.conf /app/supervisord/conf.d/jupyterlab.conf.disabled
 	echo "JupyterLab has been disabled."
 fi
 

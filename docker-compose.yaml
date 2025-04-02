@@ -15,7 +15,7 @@ services:
       - ${JUPYTERLAB_HOST:-127.0.0.1}:${JUPYTERLAB_PORT:-8888}:8888
     healthcheck:
       test: curl --fail http://localhost:8000/docs || exit 1
-      interval: 3s
+      interval: 10s
       timeout: 2s
-      retries: 5
-      start_period: 5s
+      retries: 2
+      start_period: 10s

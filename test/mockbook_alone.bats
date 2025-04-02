@@ -15,12 +15,12 @@ teardown_file() {
 
 # Test services are up
 # ============================================================================
-@test "Mock service is up" {
+@test "Mockbook service is up" {
 	run curl --fail http://localhost:8000/docs
 	assert_success
 }
 
 @test "JupyterLab service is down" {
-	run curl --fail http://localhost:8888
+	run curl --fail http://localhost:8888/jupyter
 	assert_failure
 }
