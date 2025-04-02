@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y \
     inotify-tools \
     && apt-get clean
 
+# Remove NGINX welcome page
+RUN rm -rf /etc/nginx/sites-enabled/default
+
 WORKDIR /app
 
 # Install uv
