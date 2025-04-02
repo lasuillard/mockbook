@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     nginx \
     supervisor \
+    inotify-tools \
     && apt-get clean
 
 WORKDIR /app
