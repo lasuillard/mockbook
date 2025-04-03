@@ -34,5 +34,5 @@ updates:
     schedule:
       interval: monthly
     groups:
-      all:
-        patterns: ['*']
+      bats:
+        patterns: ['bats*']
