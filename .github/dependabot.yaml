@@ -35,5 +35,4 @@ updates:
       interval: monthly
     groups:
       all:
-        applies-to: version-updates
-        update-types: ["major", "minor"]
+        patterns: ['*']
