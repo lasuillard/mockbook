@@ -2,13 +2,13 @@ services:
   app:
     build: .
     environment:
-      JUPYTERLAB_ARGS: ${JUPYETLAB_ARGS:-"--NotebookApp.token=${MOCKBOOK_TOKEN:-token}"}
-      DISABLE_JUPYTERLAB: ${DISABLE_JUPYTERLAB:-}
       MOCKBOOK_ARGS: ${MOCKBOOK_ARGS:-}
-      DISABLE_MOCKBOOK_AUTORELOAD: ${DISABLE_MOCKBOOK_AUTORELOAD:-}
+      MOCKBOOK_AUTORELOAD_DISABLED: ${MOCKBOOK_AUTORELOAD_DISABLED:-}
+      JUPYTERLAB_ARGS: ${JUPYETLAB_ARGS:-"--NotebookApp.token=${MOCKBOOK_TOKEN:-token}"}
+      JUPYTERLAB_DISABLED: ${JUPYTERLAB_DISABLED:-}
       NGINX_ARGS: ${NGINX_ARGS:-}
-      DISABLE_NGINX: ${DISABLE_NGINX:-}
-      DISABLE_NGINX_AUTORELOAD: ${DISABLE_NGINX_AUTORELOAD:-}
+      NGINX_DISABLED: ${NGINX_DISABLED:-}
+      NGINX_RELOADER_DISABLED: ${NGINX_RELOADER_DISABLED:-}
     volumes:
       - ./mockbook/notebooks:/app/mockbook/notebooks
       - ./mockbook/nginx:/app/mockbook/nginx

@@ -40,9 +40,12 @@ Following endpoints will be available:
 
 Also, following environment variables supported:
 
-| Key                           | Description                                                                                                                                       |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `JUPYTERLAB_ARGS`             | Extra arguments for JupyterLab.                                                                                                                   |
-| `DISABLE_JUPYTERLAB`          | Disable JupyterLab service. <br/>May useful for certain environments (such as testing) where notebook is unnecessary.                                  |
-| `MOCKBOOK_ARGS`               | Extra arguments for Mockbook (**uvicorn**)                                                                                                        |
-| `DISABLE_MOCKBOOK_AUTORELOAD` | Disable auto reloading (`--reload` argument of **uvicorn**). <br/>May useful for certain environments (such as testing) where reloading is not desirable. |
+| Key                            | Description                                                                                                                                               |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `MOCKBOOK_ARGS`                | Extra arguments for Mockbook (**uvicorn**)                                                                                                                |
+| `MOCKBOOK_AUTORELOAD_DISABLED` | Disable auto reloading (`--reload` argument of **uvicorn**). <br/>May useful for certain environments (such as testing) where reloading is not desirable. |
+| `NGINX_ARGS`                   | Extra arguments to pass to NGINX.                                                                                                                         |
+| `JUPYTERLAB_ARGS`              | Extra arguments for JupyterLab.                                                                                                                           |
+| `JUPYTERLAB_DISABLED`          | Disable JupyterLab service. <br/>May useful for certain environments (such as testing) where notebook is unnecessary.                                     |
+| `NGINX_DISABLED`               | Disable NGINX service.                                                                                                                                    |
+| `NGINX_RELOADER_DISABLED`      | Disable NGINX reloader.                                                                                                                                   |

@@ -1,7 +1,7 @@
 setup_file() {
-	export DISABLE_JUPYTERLAB=1
-	export DISABLE_MOCKBOOK_AUTORELOAD=1
-	export DISABLE_NGINX=1
+	export JUPYTERLAB_DISABLED=1
+	export MOCKBOOK_AUTORELOAD_DISABLED=1
+	export NGINX_DISABLED=1
 
 	docker compose --env-file /dev/null up --detach --build --wait --wait-timeout 30
 }
