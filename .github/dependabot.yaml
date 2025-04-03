@@ -35,4 +35,4 @@ updates:
       interval: monthly
     groups:
       bats:
-        patterns: ['bats*']
+        patterns: ['*/bats*']
