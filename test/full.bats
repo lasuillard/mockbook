@@ -19,6 +19,16 @@ teardown_file() {
 }
 
 @test "JupyterLab service is up" {
-	run curl --fail http://localhost:8888/jupyter
-	assert_success
+	run curl --fail --silent http://localhost:8888/jupyter/api
+	assert_output --regexp '^\{"version": ".*"\}$'
+}
+
+@test "NGINX service is up" {
+	# Has route to JupyterLab
+	run curl --fail --silent http://localhost:80/jupyter/api
+	assert_output --regexp '^\{"version": ".*"\}$'
+
+	# Has route to Mockbook
+	run curl --fail --silent http://localhost:80/
+	assert_output --regexp '^"OK"$'
 }

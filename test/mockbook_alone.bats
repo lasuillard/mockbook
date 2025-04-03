@@ -1,6 +1,7 @@
 setup_file() {
 	export DISABLE_JUPYTERLAB=1
 	export DISABLE_MOCKBOOK_AUTORELOAD=1
+	export DISABLE_NGINX=1
 	docker compose up --detach --build --wait --wait-timeout 30
 }
 
@@ -21,6 +22,11 @@ teardown_file() {
 }
 
 @test "JupyterLab service is down" {
-	run curl --fail http://localhost:8888/jupyter
-	assert_failure
+	run curl --fail http://localhost:8888/jupyter/api
+	assert_failure 56  # curl: (56) Recv failure: Connection reset by peer
+}
+
+@test "NGINX service is down" {
+	run curl --fail http://localhost:80/
+	assert_failure 56
 }
