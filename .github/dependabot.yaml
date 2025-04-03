@@ -28,3 +28,12 @@ updates:
       dev-dependencies:
         applies-to: version-updates
         dependency-type: development
+
+  - package-ecosystem: gitsubmodule
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      all:
+        applies-to: version-updates
+        update-types: ["major", "minor"]
