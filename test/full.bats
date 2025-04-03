@@ -1,5 +1,5 @@
 setup_file() {
-	docker compose up --detach --build --wait --wait-timeout 30
+	docker compose --env-file /dev/null up --detach --build --wait --wait-timeout 30
 }
 
 setup() {
