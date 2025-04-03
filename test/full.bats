@@ -1,5 +1,5 @@
 setup_file() {
-	docker compose up --detach --build --wait --wait-timeout 30
+	docker compose --env-file /dev/null up --detach --build --wait --wait-timeout 30
 }
 
 setup() {
@@ -13,12 +13,22 @@ teardown_file() {
 
 # Test services are up
 # ============================================================================
-@test "Mock service is up" {
+@test "Mockbook service is up" {
 	run curl --fail http://localhost:8000/docs
 	assert_success
 }
 
 @test "JupyterLab service is up" {
-	run curl --fail http://localhost:8888
-	assert_success
+	run curl --fail --silent http://localhost:8888/jupyter/api
+	assert_output --regexp '^\{"version": ".*"\}$'
+}
+
+@test "NGINX service is up" {
+	# Has route to JupyterLab
+	run curl --fail --silent http://localhost:80/jupyter/api
+	assert_output --regexp '^\{"version": ".*"\}$'
+
+	# Has route to Mockbook
+	run curl --fail --silent http://localhost:80/
+	assert_output --regexp '^"OK"$'
 }

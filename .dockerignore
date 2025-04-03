@@ -1,7 +1,10 @@
 **
 
 # Allowed things
+!jupyterlab/**
 !mockbook/**
+!nginx/**
+!scripts/**
 !supervisord/**
 !docker-entrypoint.sh
 !LICENSE
