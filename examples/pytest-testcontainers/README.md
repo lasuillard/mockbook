@@ -1,8 +1,11 @@
-# Example pytest using Testcontainers
+# Example - pytest using Testcontainers
 
-A simple example of using pytest with Testcontainers.
+Example using Mockbook as your mock server in pytest with Testcontainers.
 
-To run tests, run the following commands:
+> [!NOTE]
+> Consider other mock libraries such as [requests-mock](https://pypi.org/project/requests-mock/) if possible, instead of using Mockbook as your mock server.
+
+To run example tests, run the following commands:
 
 ```bash
 $ uv run pytest .

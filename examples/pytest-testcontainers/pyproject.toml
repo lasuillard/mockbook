@@ -1,7 +1,7 @@
 [project]
 name = "mockbook-examples-pytest-testcontainers"
 version = "0.1.0"
-description = "A simple example of using pytest with Testcontainers."
+description = "Example using Mockbook as your mock server in pytest with Testcontainers."
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
