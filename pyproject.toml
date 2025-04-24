@@ -35,7 +35,7 @@ convention = "google"
 
 [tool.mypy]
 python_version = "3.13"
-exclude = ['^\.venv/*', '^test/.*', '^jupyterlab/.*']
+exclude = ['^\.venv/*', '^test/.*', '^jupyterlab/.*', '^examples/.*']
 namespace_packages = true
 check_untyped_defs = true
 disallow_untyped_defs = true
