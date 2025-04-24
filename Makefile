@@ -67,6 +67,5 @@ lint:  ## Run all linters
 .PHONY: lint
 
 test:  ## Run tests
-	docker compose build
 	./test/bats/bin/bats ./test
 .PHONY: test

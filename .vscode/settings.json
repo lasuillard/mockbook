@@ -1,11 +1,24 @@
 {
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
   "cSpell.words": [
+    "AUTORELOAD",
     "devcontainers",
-    "mockbook"
+    "JUPYTERLAB",
+    "mockbook",
+    "pytest",
+    "Testcontainers"
   ],
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.ipynb_checkpoints": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/.Trash-1000": true,
+    "**/.venv": true
+  },
   "ruff.fixAll": true
 }

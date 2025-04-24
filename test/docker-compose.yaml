@@ -1,17 +1,14 @@
 services:
   app:
-    build: .
+    build: ..
     environment:
       MOCKBOOK_ARGS: ${MOCKBOOK_ARGS:-}
       MOCKBOOK_AUTORELOAD_DISABLED: ${MOCKBOOK_AUTORELOAD_DISABLED:-}
-      JUPYTERLAB_ARGS: ${JUPYETLAB_ARGS:-"--NotebookApp.token=${MOCKBOOK_TOKEN:-token}"}
+      JUPYTERLAB_ARGS: ${JUPYTERLAB_ARGS:-"--NotebookApp.token=${MOCKBOOK_TOKEN:-token}"}
       JUPYTERLAB_DISABLED: ${JUPYTERLAB_DISABLED:-}
       NGINX_ARGS: ${NGINX_ARGS:-}
       NGINX_DISABLED: ${NGINX_DISABLED:-}
       NGINX_RELOADER_DISABLED: ${NGINX_RELOADER_DISABLED:-}
-    volumes:
-      - ./mockbook/notebooks:/app/mockbook/notebooks
-      - ./mockbook/nginx:/app/mockbook/nginx
     ports:
       - ${NGINX_HOST:-127.0.0.1}:${NGINX_PORT:-80}:80
       - ${MOCKBOOK_HOST:-127.0.0.1}:${MOCKBOOK_PORT:-8000}:8000

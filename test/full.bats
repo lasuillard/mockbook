@@ -1,3 +1,5 @@
+export COMPOSE_FILE="test/docker-compose.yaml"
+
 setup_file() {
 	docker compose --env-file /dev/null up --detach --build --wait --wait-timeout 30
 }
