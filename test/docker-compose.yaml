@@ -1,0 +1,21 @@
+services:
+  app:
+    build: ..
+    environment:
+      MOCKBOOK_ARGS: ${MOCKBOOK_ARGS:-}
+      MOCKBOOK_AUTORELOAD_DISABLED: ${MOCKBOOK_AUTORELOAD_DISABLED:-}
+      JUPYTERLAB_ARGS: ${JUPYETLAB_ARGS:-"--NotebookApp.token=${MOCKBOOK_TOKEN:-token}"}
+      JUPYTERLAB_DISABLED: ${JUPYTERLAB_DISABLED:-}
+      NGINX_ARGS: ${NGINX_ARGS:-}
+      NGINX_DISABLED: ${NGINX_DISABLED:-}
+      NGINX_RELOADER_DISABLED: ${NGINX_RELOADER_DISABLED:-}
+    ports:
+      - ${NGINX_HOST:-127.0.0.1}:${NGINX_PORT:-80}:80
+      - ${MOCKBOOK_HOST:-127.0.0.1}:${MOCKBOOK_PORT:-8000}:8000
+      - ${JUPYTERLAB_HOST:-127.0.0.1}:${JUPYTERLAB_PORT:-8888}:8888
+    healthcheck:
+      test: curl --fail http://localhost:9001 || exit 1
+      interval: 10s
+      timeout: 2s
+      retries: 2
+      start_period: 10s
