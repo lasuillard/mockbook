@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
     nginx \
     supervisor \
     inotify-tools \
-    && apt-get clean
+    && rm -rf /var/lib/apt/lists/*
 
 # Remove NGINX welcome page
 RUN rm -rf /etc/nginx/sites-enabled/default
@@ -19,9 +19,9 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 ENV UV_SYSTEM_PYTHON=1
 
 COPY pyproject.toml uv.lock ./
-RUN uv pip install --requirement pyproject.toml
+RUN uv pip install --no-cache --requirement pyproject.toml
 COPY ./mockbook /app/mockbook
-RUN uv pip install --editable .
+RUN uv pip install --no-cache --editable .
 
 COPY . .
 
