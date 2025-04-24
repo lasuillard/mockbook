@@ -5,7 +5,9 @@
   },
   "cSpell.words": [
     "devcontainers",
-    "mockbook"
+    "mockbook",
+    "pytest",
+    "Testcontainers"
   ],
   "files.exclude": {
     "**/__pycache__": true,
