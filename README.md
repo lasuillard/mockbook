@@ -49,4 +49,4 @@ Also, following environment variables supported:
 | `NGINX_DISABLED`               | Disable NGINX service.                                                                                                                                    |
 | `NGINX_RELOADER_DISABLED`      | Disable NGINX reloader.                                                                                                                                   |
 
-Please check [`docker-compose.yaml`](/docker-compose.yaml) file for more detailed example.
+Please check [examples](/examples) directory for more usage examples.
