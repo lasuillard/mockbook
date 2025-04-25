@@ -67,5 +67,5 @@ lint:  ## Run all linters
 .PHONY: lint
 
 test:  ## Run tests
-	./test/bats/bin/bats ./test
+	./test/bats/bin/bats --formatter pretty --verbose-run ./test
 .PHONY: test
