@@ -17,8 +17,6 @@ teardown_file() {
 	docker compose down
 }
 
-# Test services are up
-# ============================================================================
 @test "Mockbook service is up" {
 	run curl --fail http://localhost:8000/docs
 	assert_success
