@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["mypy~=1.15.0", "ruff~=0.11.2", "types-requests>=2.32.0.20250328"]
+dev = ["mypy~=1.16.0", "ruff~=0.11.2", "types-requests>=2.32.0.20250328"]
 
 [tool.uv]
 package = false
