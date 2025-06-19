@@ -2,7 +2,7 @@
   "name": "lasuillard/mockbook",
   "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
   "features": {
-    "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
+    "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "onCreateCommand": "./.devcontainer/onCreateCommand.sh",
