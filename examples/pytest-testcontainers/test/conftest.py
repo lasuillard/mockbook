@@ -3,7 +3,7 @@ import atexit
 import pickle
 from collections.abc import Callable
 from pathlib import Path
-from typing import Any, TypeVar, cast
+from typing import Any, cast
 from urllib.parse import urljoin
 
 import pytest
@@ -83,10 +83,7 @@ def mockbook_url(
     )
 
 
-_T = TypeVar("_T")
-
-
-def once(factory: Callable[..., _T], *, datafile: Path, lockfile: Path) -> _T:
+def once[T](factory: Callable[..., T], *, datafile: Path, lockfile: Path) -> T:
     """Ensure that a factory function is only called once, and the result is cached.
 
     Reference: https://pytest-xdist.readthedocs.io/en/stable/how-to.html#making-session-scoped-fixtures-execute-only-once
@@ -100,4 +97,4 @@ def once(factory: Callable[..., _T], *, datafile: Path, lockfile: Path) -> _T:
             with datafile.open("wb") as f_w:
                 pickle.dump(data, f_w)
 
-    return cast("_T", data)
+    return cast("T", data)
