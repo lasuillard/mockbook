@@ -1,4 +1,3 @@
-# flake8: noqa: UP035
 from http import HTTPStatus
 from urllib.parse import urljoin
 
