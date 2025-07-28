@@ -826,7 +826,7 @@ dependencies = [
     { name = "nbformat" },
 ]
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 dev = [
     { name = "mypy" },
     { name = "ruff" },
@@ -839,12 +839,15 @@ requires-dist = [
     { name = "faker", specifier = "~=37.4.0" },
     { name = "fastapi", extras = ["standard"], specifier = "~=0.115.4" },
     { name = "jupyterlab", specifier = "~=4.4.1" },
-    { name = "mypy", marker = "extra == 'dev'", specifier = "~=1.16.0" },
     { name = "nbformat", specifier = "~=5.10.4" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = "~=0.12.1" },
-    { name = "types-requests", marker = "extra == 'dev'", specifier = ">=2.32.0.20250328" },
 ]
-provides-extras = ["dev"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "mypy", specifier = "~=1.16.0" },
+    { name = "ruff", specifier = "~=0.12.1" },
+    { name = "types-requests", specifier = ">=2.32.0.20250328" },
+]
 
 [[package]]
 name = "mypy"

@@ -6,7 +6,8 @@ on:
   pull_request:
     branches: [main]
 
-permissions: read-all
+env:
+  UV_FROZEN: 1
 
 jobs:
   lint:
@@ -22,7 +23,7 @@ jobs:
           enable-cache: true
 
       - name: Install deps
-        run: uv sync --frozen --all-extras
+        run: uv sync
 
       - uses: pre-commit/action@v3.0.1
       - uses: pre-commit-ci/lite-action@v1.1.0
