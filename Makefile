@@ -21,11 +21,11 @@ install:  ## Install deps
 	git submodule update --init --recursive --remote
 	pre-commit install --install-hooks
 	uv python install
-	uv sync --frozen --all-packages --all-extras
+	uv sync --frozen
 .PHONY: install
 
 update:  ## Update deps and tools
-	uv sync --upgrade --all-extras
+	uv sync --upgrade
 	pre-commit autoupdate
 .PHONY: update
 
