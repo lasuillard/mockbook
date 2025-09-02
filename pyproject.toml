@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13, <4.0"
 dependencies = [
     "nbformat~=5.10.4",
-    "fastapi[standard]~=0.115.4",
+    "fastapi[standard]~=0.116.1",
     "jupyterlab~=4.4.1",
     "faker~=37.5.3",
     "factory-boy~=3.3.1",
